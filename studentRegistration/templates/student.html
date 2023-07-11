@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Student Data {% endblock %}\
+{% block header %} Student (with department name as Foreign Key) {% endblock %}
+{% block content %}
+<div class="card-body">
+    <table class="table table-dark table-stripped">
+        <thead>
+        <tr>
+            <th scope="col">Student Name</th>
+            <th scope="col">Semester</th>
+            <th scope="col">Course</th>
+            <th scope="col">Address</th>
+            <th scope="col">Department</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for stu in students %}
+        <tr>
+            <th>{{stu.name}}</th>
+            <th>{{stu.semester}}</th>
+            <th>{{stu.course}}</th>
+            <th>{{stu.address}}</th>
+            <th>{{stu.department}}</th>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
