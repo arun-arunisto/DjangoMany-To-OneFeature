@@ -3,7 +3,12 @@
 {% block header %} Student (with department name as Foreign Key) {% endblock %}
 {% block content %}
 <div class="card-body">
-    <table class="table table-dark table-stripped">
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <a href="/stu_create" class="btn btn-primary">Create Student</a>
+    </div>
+    <div style="margin:10px 0;"></div>
+    {% if students %}
+    <table class="table table-stripped">
         <thead>
         <tr>
             <th scope="col">Student Name</th>
@@ -11,6 +16,7 @@
             <th scope="col">Course</th>
             <th scope="col">Address</th>
             <th scope="col">Department</th>
+            <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -21,9 +27,11 @@
             <th>{{stu.course}}</th>
             <th>{{stu.address}}</th>
             <th>{{stu.department}}</th>
+            <th><a href="/del_stu/{{stu.id}}/" class="btn btn-danger">Delete</a></th>
         </tr>
         {% endfor %}
         </tbody>
     </table>
+    {% endif %}
 </div>
 {% endblock %}

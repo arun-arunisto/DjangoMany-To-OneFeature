@@ -3,21 +3,27 @@
 {% block header %} Department (Foreign_key) {% endblock %}
 {% block content %}
 <div class="card-body">
-<table class="table table-dark table-stripped">
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <a href="/create_dept" class="btn btn-primary">Create Department</a>
+    </div>
+    <div style="margin:10px 0;"></div>
+{% if departments %}
+<table class="table table-stripped">
     <thead>
     <tr>
-        <th scope="col">Department Id</th>
         <th scope="col">Department Name</th>
+        <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
     {% for dept in departments %}
     <tr>
-        <th>{{dept.id}}</th>
         <th>{{dept.name}}</th>
+        <th><a href="/del_dept/{{dept.id}}" class="btn btn-danger">Delete</a></th>
     </tr>
     {% endfor %}
     </tbody>
 </table>
+{% endif %}
 </div>
 {% endblock %}
